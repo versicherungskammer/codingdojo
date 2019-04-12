@@ -18,7 +18,7 @@ public class MinerTests {
     }
 
     @Test
-    public void boardWithTwoFieldsHorizontalReturnsRight(){
+    public void minerRunsRightReturnsRight(){
 
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("rechts");
@@ -38,7 +38,7 @@ public class MinerTests {
     }
 
     @Test
-    public void boardWithTwoFieldsHorizontalReturnLeft(){
+    public void minerRunsLeftReturnLeft(){
 
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("links");
@@ -57,7 +57,7 @@ public class MinerTests {
     }
 
     @Test
-    public void boardWithTwoFieldsVerticalReturnDown(){
+    public void minerRunsDownReturnDown(){
 
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("runter");
@@ -77,7 +77,7 @@ public class MinerTests {
     }
 
     @Test
-    public void boardWithTwoFieldsVerticalReturnTop(){
+    public void minerRunsUpReturnTop(){
 
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("rauf");
@@ -96,7 +96,7 @@ public class MinerTests {
     }
 
     @Test
-    public void minerRunsTwoFieldsRightReturnsTwoRights(){
+    public void minerRunsTwoTimeRightReturnsTwoRights(){
 
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("rechts");
@@ -118,7 +118,7 @@ public class MinerTests {
     }
 
     @Test
-    public void minerRunsTwoFieldsRightReturnsTwoLeft(){
+    public void minerRunsTwoTimesLeftReturnsTwoLeft(){
 
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("links");
@@ -140,7 +140,7 @@ public class MinerTests {
     }
 
     @Test
-    public void minerRunsTwoFieldsRightReturnsTwoDown(){
+    public void minerRunsTwoTimesDownReturnsTwoDown(){
 
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("runter");
@@ -162,7 +162,7 @@ public class MinerTests {
     }
 
     @Test
-    public void minerRunsTwoFieldsRightReturnsTwoTop(){
+    public void minerRunsTwoTimesUpReturnsTwoTop(){
 
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("rauf");
@@ -184,7 +184,7 @@ public class MinerTests {
     }
 
     @Test
-    public void minerRunsTwoFieldsRightAndDownReturnsLeftTop(){
+    public void minerRunsLeftAndTopReturnsLeftTop(){
 
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("links");
@@ -207,7 +207,7 @@ public class MinerTests {
     }
 
     @Test
-    public void minerRunsTwoFieldsDownAndRightReturnsDownRight(){
+    public void minerRunsDownAndRightReturnsDownRight(){
 
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("runter");
