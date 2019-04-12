@@ -13,49 +13,45 @@ public class MineEscape {
 
         while( aktuellePosition.getX() != endPosition.getX() || aktuellePosition.getY() != endPosition.getY()) {
 
-            while (aktuellePosition.getX() != endPosition.getX()) {
+            while (aktuellePosition.getX() < endPosition.getX()){
+                if( aktuellePosition.getX() + 1 < board.length && board[aktuellePosition.getX() + 1][aktuellePosition.getY()]) {
 
-
-                if (aktuellePosition.getX() < endPosition.getX() || aktuellePosition.getX() > endPosition.getX()) {
-
-                    if( aktuellePosition.getX() + 1 < board.length && board[aktuellePosition.getX() + 1][aktuellePosition.getY()]) {
-
-                        results.add("rechts");
-                        aktuellePosition = new Coordinate(aktuellePosition.getX() + 1, aktuellePosition.getY());
-                    } else if( aktuellePosition.getX() - 1 >= 0 && board[aktuellePosition.getX() - 1][aktuellePosition.getY()]) {
-                        results.add("links");
-                        aktuellePosition = new Coordinate(aktuellePosition.getX() - 1, aktuellePosition.getY());
-                    } else {
-                        break;
-                    }
+                    results.add("rechts");
+                    aktuellePosition = new Coordinate(aktuellePosition.getX() + 1, aktuellePosition.getY());
                 } else {
                     break;
                 }
 
             }
 
-            while (aktuellePosition.getY() != endPosition.getY()) {
+            while (aktuellePosition.getX() > endPosition.getX()) {
 
-
-                if (aktuellePosition.getY() < endPosition.getY() || aktuellePosition.getY() > endPosition.getY()) {
-
-                    if (aktuellePosition.getY() + 1 < board[aktuellePosition.getX()].length && board[aktuellePosition.getX()][aktuellePosition.getY() +1]){
-                        results.add("runter");
-                        aktuellePosition = new Coordinate(aktuellePosition.getX(), aktuellePosition.getY() + 1);
-                    } else if (aktuellePosition.getY() - 1 >=0 && board[aktuellePosition.getX()][aktuellePosition.getY() -1]){
-
-                        results.add("rauf");
-                        aktuellePosition = new Coordinate(aktuellePosition.getX(), aktuellePosition.getY() - 1);
-                    }
-                    else {
-                        break;
-                    }
-
-                }
-                else {
+                if(aktuellePosition.getX() - 1 >= 0 && board[aktuellePosition.getX() - 1][aktuellePosition.getY()]){
+                    results.add("links");
+                    aktuellePosition = new Coordinate(aktuellePosition.getX() - 1, aktuellePosition.getY());
+                } else {
                     break;
                 }
+            }
 
+            while(aktuellePosition.getY() < endPosition.getY()){
+
+                if (aktuellePosition.getY() + 1 < board[aktuellePosition.getX()].length && board[aktuellePosition.getX()][aktuellePosition.getY() +1]){
+                    results.add("runter");
+                    aktuellePosition = new Coordinate(aktuellePosition.getX(), aktuellePosition.getY() + 1);
+                } else {
+                    break;
+                }
+            }
+
+            while(aktuellePosition.getY() > endPosition.getY()){
+
+                if(aktuellePosition.getY() - 1 >=0 && board[aktuellePosition.getX()][aktuellePosition.getY() -1]){
+                    results.add("rauf");
+                    aktuellePosition = new Coordinate(aktuellePosition.getX(), aktuellePosition.getY() - 1);
+                } else {
+                    break;
+                }
 
             }
         }

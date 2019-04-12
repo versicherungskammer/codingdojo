@@ -23,9 +23,11 @@ public class MinerTests {
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("rechts");
 
-        boolean[][] board = new boolean[1][2];
+        boolean[][] board = new boolean[2][1];
+        board[0][0] = true;
+        board[1][0] = true;
         Coordinate startPosition = new Coordinate(0, 0);
-        Coordinate endPosition = new Coordinate(0, 1);
+        Coordinate endPosition = new Coordinate(1, 0);
 
         MineEscape mineEscape = new MineEscape();
 
@@ -41,7 +43,9 @@ public class MinerTests {
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("links");
 
-        boolean[][] board = new boolean[1][2];
+        boolean[][] board = new boolean[2][1];
+        board[0][0] = true;
+        board[1][0] = true;
         Coordinate startPosition = new Coordinate(1, 0);
         Coordinate endPosition = new Coordinate(0, 0);
 
@@ -58,7 +62,10 @@ public class MinerTests {
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("runter");
 
-        boolean[][] board = new boolean[2][1];
+        boolean[][] board = new boolean[1][2];
+        board[0][0] = true;
+        board[0][1] = true;
+
         Coordinate startPosition = new Coordinate(0, 0);
         Coordinate endPosition = new Coordinate(0, 1);
 
@@ -75,7 +82,9 @@ public class MinerTests {
         ArrayList<String> expectedResult = new ArrayList<String>();
         expectedResult.add("rauf");
 
-        boolean[][] board = new boolean[2][1];
+        boolean[][] board = new boolean[1][2];
+        board[0][0] = true;
+        board[0][1] = true;
         Coordinate startPosition = new Coordinate(0, 1);
         Coordinate endPosition = new Coordinate(0, 0);
 
@@ -93,7 +102,10 @@ public class MinerTests {
         expectedResult.add("rechts");
         expectedResult.add("rechts");
 
-        boolean[][] board = new boolean[1][3];
+        boolean[][] board = new boolean[3][1];
+        board[0][0] = true;
+        board[1][0] = true;
+        board[2][0] = true;
         Coordinate startPosition = new Coordinate(0, 0);
         Coordinate endPosition = new Coordinate(2, 0);
 
@@ -112,7 +124,10 @@ public class MinerTests {
         expectedResult.add("links");
         expectedResult.add("links");
 
-        boolean[][] board = new boolean[1][3];
+        boolean[][] board = new boolean[3][1];
+        board[0][0] = true;
+        board[1][0] = true;
+        board[2][0] = true;
         Coordinate startPosition = new Coordinate(2, 0);
         Coordinate endPosition = new Coordinate(0, 0);
 
@@ -131,7 +146,10 @@ public class MinerTests {
         expectedResult.add("runter");
         expectedResult.add("runter");
 
-        boolean[][] board = new boolean[3][1];
+        boolean[][] board = new boolean[1][3];
+        board[0][0] = true;
+        board[0][1] = true;
+        board[0][2] = true;
         Coordinate startPosition = new Coordinate(0, 0);
         Coordinate endPosition = new Coordinate(0, 2);
 
@@ -150,7 +168,10 @@ public class MinerTests {
         expectedResult.add("rauf");
         expectedResult.add("rauf");
 
-        boolean[][] board = new boolean[3][1];
+        boolean[][] board = new boolean[1][3];
+        board[0][0] = true;
+        board[0][1] = true;
+        board[0][2] = true;
         Coordinate startPosition = new Coordinate(0, 2);
         Coordinate endPosition = new Coordinate(0, 0);
 
@@ -170,6 +191,10 @@ public class MinerTests {
         expectedResult.add("rauf");
 
         boolean[][] board = new boolean[2][2];
+        board[0][1] = true;
+        board[1][1] = false;
+        board[0][0] = true;
+        board[1][0] = false;
         Coordinate startPosition = new Coordinate(1, 1);
         Coordinate endPosition = new Coordinate(0, 0);
 
