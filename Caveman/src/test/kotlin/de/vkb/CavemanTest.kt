@@ -1,33 +1,28 @@
-import java.util.ArrayList
+package de.vkb
 
+import org.junit.jupiter.api.Test
 
+class CavemanTest {
 
-object CavemanTest {
-
-    internal enum class Action {
+    enum class Action {
         BLOCK, POKE, SHARPEN;
 
-
         companion object {
-
-            fun parse(string: String): List<Action> {
-                val result = ArrayList()
-                for (c in string.toCharArray()) {
-                    when (c) {
-                        'B' -> result.add(BLOCK)
-                        'P' -> result.add(POKE)
-                        'S' -> result.add(SHARPEN)
+            fun parse(string: String) =
+                string.toCharArray().map {
+                    when (it) {
+                        'P' -> POKE
+                        'S' -> SHARPEN
+                        'B' -> BLOCK
+                        else -> throw Exception("unknown action")
                     }
                 }
-                return result
-            }
         }
     }
 
-    @Test
     fun getSharpness(actions: List<Action>): Int {
         var sharpness = 0
-        for (i in 0 until actions.size() - 1) {
+        for (i in 0 until actions.size - 1) {
             val action = actions[i]
             if (action == Action.SHARPEN) {
                 sharpness++
@@ -39,7 +34,8 @@ object CavemanTest {
         return sharpness
     }
 
-    fun main(args: Array<String>) {
+    @Test
+    fun main() {
         test("PP")
     }
 
@@ -53,7 +49,10 @@ object CavemanTest {
             myActions += call(input)
             opponentsActions += c
 
-            val result = battle(Action.parse(myActions), Action.parse(opponentsActions))
+            val result = battle(
+                Action.parse(myActions),
+                Action.parse(opponentsActions)
+            )
             if (result != null) {
                 System.out.print("$myActions,$opponentsActions")
                 System.out.println(" - $result")
@@ -66,16 +65,16 @@ object CavemanTest {
     }
 
     fun call(input: String?): String {
-        return Caveman.run(input)
+        return Caveman().run(input)
     }
 
     fun battle(actions1: List<Action>, actions2: List<Action>): String? {
         val sharpness1 = getSharpness(actions1)
         val sharpness2 = getSharpness(actions2)
-        val current1 = actions1[actions1.size() - 1]
-        val current2 = actions2[actions1.size() - 1]
+        val current1 = actions1[actions1.size - 1]
+        val current2 = actions2[actions1.size - 1]
 
-        if (current1 == Action.POKE && current2 == Action.POKE) {
+        if (current1 == CavemanTest.Action.POKE && current2 == CavemanTest.Action.POKE) {
             return if (sharpness1 == 0 && sharpness2 > 0) {
                 "Opponent wins"
             } else if (sharpness2 == 0 && sharpness1 > 0) {
@@ -83,25 +82,25 @@ object CavemanTest {
             } else {
                 null
             }
-        } else if (current1 == Action.POKE && current2 == Action.SHARPEN) {
+        } else if (current1 == CavemanTest.Action.POKE && current2 == CavemanTest.Action.SHARPEN) {
             return if (sharpness1 > 0) {
                 "Player wins"
             } else {
                 null
             }
-        } else if (current2 == Action.POKE && current1 == Action.SHARPEN) {
+        } else if (current2 == CavemanTest.Action.POKE && current1 == CavemanTest.Action.SHARPEN) {
             return if (sharpness2 > 0) {
                 "Opponent wins"
             } else {
                 null
             }
-        } else if (current1 == Action.POKE && current2 == Action.BLOCK) {
+        } else if (current1 == CavemanTest.Action.POKE && current2 == CavemanTest.Action.BLOCK) {
             return if (sharpness1 >= 5) {
                 "Player wins"
             } else {
                 null
             }
-        } else if (current2 == Action.POKE && current1 == Action.BLOCK) {
+        } else if (current2 == CavemanTest.Action.POKE && current1 == CavemanTest.Action.BLOCK) {
             return if (sharpness2 >= 5) {
                 "Opponent wins"
             } else {

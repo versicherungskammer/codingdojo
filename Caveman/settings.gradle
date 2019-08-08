@@ -1,0 +1,11 @@
+pluginManagement {
+    if (rechner == "dienst") {
+        repositories {
+            maven {
+                url 'http://repo01.vkbads.de/artifactory/ext-gdlplgin'
+            }
+        }
+    }
+}
+rootProject.name = 'partner-backend'
+

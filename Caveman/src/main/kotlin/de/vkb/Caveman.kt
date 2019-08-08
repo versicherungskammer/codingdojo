@@ -1,25 +1,20 @@
-import java.util.ArrayList
-import java.util.Collections
+package de.vkb
 
-object Caveman {
-
-    internal enum class Action {
+class Caveman {
+    enum class Action {
         BLOCK, POKE, SHARPEN;
-
 
         companion object {
 
-            fun parse(string: String): List<Action> {
-                val result = ArrayList()
-                for (c in string.toCharArray()) {
-                    when (c) {
-                        'B' -> result.add(BLOCK)
-                        'P' -> result.add(POKE)
-                        'S' -> result.add(SHARPEN)
+            fun parse(string: String) =
+                string.toCharArray().map {
+                    when (it) {
+                        'P' -> POKE
+                        'S' -> SHARPEN
+                        'B' -> BLOCK
+                        else -> throw Exception("unknown action")
                     }
                 }
-                return result
-            }
         }
     }
 
@@ -50,13 +45,13 @@ object Caveman {
     fun run(input: String?): String {
         val action: Action
         if (input == null) {
-            action = run(Collections.emptyList(), Collections.emptyList())
+            action = run(emptyList(), emptyList())
         } else {
             val actions = input.split(",")
             action = run(Action.parse(actions[0]), Action.parse(actions[1]))
         }
 
-        return String.valueOf(action.name().charAt(0))
+        return action.name.slice(0..0)
     }
 
     fun run(myActions: List<Action>, opponentsActions: List<Action>): Action {
