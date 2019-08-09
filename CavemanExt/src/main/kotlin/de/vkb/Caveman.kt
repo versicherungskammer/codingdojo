@@ -1,62 +1,44 @@
 package de.vkb
 
 class Caveman {
-    enum class Action {
-        BLOCK, POKE, SHARPEN;
 
-        companion object {
-
-            fun parse(string: String) =
-                string.toCharArray().map {
-                    when (it) {
-                        'P' -> POKE
-                        'S' -> SHARPEN
-                        'B' -> BLOCK
-                        else -> throw Exception("unknown action")
-                    }
-                }
-        }
+  fun main(args: Array<String>) =
+    if (args.isNotEmpty()) {
+      println(run(args[0]))
+    } else {
+      println(run(null))
     }
 
-    fun main(args: Array<String>) {
-        val result: String
+  companion object {
+    fun getSharpness(actions: List<Action>): Int = getSharpnessRecursive(actions, 0)
 
-        if (args.size > 0) {
-            result = run(args[0])
-        } else {
-            result = run(null)
-        }
+    private fun getSharpnessRecursive(actions: List<Action>, originalSharpness: Int): Int =
+      when {
+        actions.isEmpty() -> originalSharpness
+        actions.last() == Action.SHARPEN -> getSharpnessRecursive(actions.subList(0, actions.size - 1), originalSharpness + 1)
+        actions.last() == Action.POKE && originalSharpness < 0 -> getSharpnessRecursive(actions.subList(0, actions.size - 1), originalSharpness + 1)
+        else -> getSharpnessRecursive(actions.subList(0, actions.size - 1), originalSharpness)
+      }
+  }
 
-        System.out.println(result)
+  fun run(input: String?): String =
+    if (input == null) {
+      run(emptyList(), emptyList()).name.slice(0..0)
+    } else {
+      val actions = input.split(",")
+      run(parseActions(actions[0]), parseActions(actions[1])).name.slice(0..0)
     }
 
-    fun getSharpness(actions: List<Action>): Int {
-        var sharpness = 0
-        for (action in actions) {
-            if (action == Action.SHARPEN) {
-                sharpness++
-            } else if (action == Action.POKE && sharpness > 0) {
-                sharpness--
-            }
-        }
-        return sharpness
+  private fun run(myActions: List<Action>, opponentsActions: List<Action>): Action =
+    when (Pair(getSharpness(myActions), getSharpness(opponentsActions))) {
+      Pair(0, 0) -> Action.SHARPEN
+      Pair(5, 0) -> Action.POKE
+      Pair(0, 1) -> Action.BLOCK
+      Pair(0, 2), Pair(0, 3), Pair(0, 4), Pair(0, 5) -> getSharpenOrBlock()
+      Pair(1, 0) -> Action.SHARPEN
+      Pair(2, 0) -> getSharpenOrPoke()
+      Pair(1, 1) -> Action.BLOCK
+      Pair(1, 2) -> getBlockOrPoke()
+      else -> getRandomAction()
     }
-
-    fun run(input: String?): String {
-        val action: Action
-        if (input == null) {
-            action = run(emptyList(), emptyList())
-        } else {
-            val actions = input.split(",")
-            action = run(Action.parse(actions[0]), Action.parse(actions[1]))
-        }
-
-        return action.name.slice(0..0)
-    }
-
-    fun run(myActions: List<Action>, opponentsActions: List<Action>): Action {
-        // TODO implement this
-        return Action.SHARPEN
-    }
-
 }
