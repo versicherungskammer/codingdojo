@@ -16,7 +16,7 @@ class Caveman {
       when {
         actions.isEmpty() -> originalSharpness
         actions.last() == Action.SHARPEN -> getSharpnessRecursive(actions.subList(0, actions.size - 1), originalSharpness + 1)
-        actions.last() == Action.POKE && originalSharpness < 0 -> getSharpnessRecursive(actions.subList(0, actions.size - 1), originalSharpness + 1)
+        actions.last() == Action.POKE && originalSharpness > 0 -> getSharpnessRecursive(actions.subList(0, actions.size - 1), originalSharpness - 1)
         else -> getSharpnessRecursive(actions.subList(0, actions.size - 1), originalSharpness)
       }
   }
