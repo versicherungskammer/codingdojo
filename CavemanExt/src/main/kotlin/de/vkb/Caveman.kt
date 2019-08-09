@@ -32,11 +32,11 @@ class Caveman {
   private fun run(myActions: List<Action>, opponentsActions: List<Action>): Action =
     when (Pair(getSharpness(myActions), getSharpness(opponentsActions))) {
       Pair(0, 0) -> Action.SHARPEN
-      Pair(5, 0) -> Action.POKE
+      Pair(5, 0), Pair(5,1), Pair(5,2), Pair(5,3), Pair(5,4) -> Action.POKE
       Pair(0, 1) -> Action.BLOCK
       Pair(0, 2), Pair(0, 3), Pair(0, 4), Pair(0, 5) -> getSharpenOrBlock()
       Pair(1, 0) -> Action.SHARPEN
-      Pair(2, 0) -> getSharpenOrPoke()
+      Pair(2, 0), Pair(3, 0), Pair(4, 0) -> getSharpenOrPoke()
       Pair(1, 1) -> Action.BLOCK
       Pair(1, 2) -> getBlockOrPoke()
       else -> getRandomAction()
