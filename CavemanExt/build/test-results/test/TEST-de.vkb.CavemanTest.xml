@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="de.vkb.CavemanTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-08T11:14:25" hostname="macbook.local" time="0.046">
+<testsuite name="de.vkb.CavemanTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-09T13:49:07" hostname="MacBookPro" time="0.043">
   <properties/>
-  <testcase name="main()" classname="de.vkb.CavemanTest" time="0.046"/>
-  <system-out><![CDATA[SS,PP - Stalemate
+  <testcase name="main()" classname="de.vkb.CavemanTest" time="0.043"/>
+  <system-out><![CDATA[SSSPBP,PPSPPS - Player wins
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
