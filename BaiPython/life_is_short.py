@@ -6,12 +6,10 @@ def play(player1: str, player2: str) -> None:
     except:
         distance: int = -1
         print("Please choose two from:\n" + "\n".join(guess_dict))
-    if distance == 0:
-        print("equal")
-    elif 0 < distance <= 2:
-        print(player1, "wins")
-    elif distance > 2:
-        print(player2, "wins")
+    
+    if distance == 0: print("equal") 
+    if 0 < distance <= 2: print(player1, "wins")
+    if distance > 2: print(player2, "wins")
 
 if __name__ == "__main__":
     play(player1 = 'scissors', player2 = 'paper')
