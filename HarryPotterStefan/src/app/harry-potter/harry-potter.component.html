@@ -1,0 +1,59 @@
+<div>
+  <div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Anzahl Band 1"
+          name="band1"
+          type="number"
+          [(ngModel)]="cart.band1"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Anzahl Band 2"
+          name="band2"
+          type="number"
+          [(ngModel)]="cart.band2"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Anzahl Band 3"
+          name="band3"
+          type="number"
+          [(ngModel)]="cart.band3"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Anzahl Band 4"
+          name="band4"
+          type="number"
+          [(ngModel)]="cart.band4"
+        />
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Anzahl Band 5"
+          name="band5"
+          type="number"
+          [(ngModel)]="cart.band5"
+        />
+      </mat-form-field>
+    </form>
+  </div>
+  <div>
+    <p>Bester Preis: {{ bestPrice | currency: "EUR":"code":"1.2-2" }}</p>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="onClickCalculate()">
+      Preis berechnen
+    </button>
+  </div>
+</div>
