@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,13 +11,14 @@ describe('HarryPotterComponent', () => {
   let component: HarryPotterComponent;
   let fixture: ComponentFixture<HarryPotterComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, FormsModule, AppMaterialModule],
-      declarations: [HarryPotterComponent]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [BrowserAnimationsModule, FormsModule, AppMaterialModule],
+        declarations: [HarryPotterComponent]
+      }).compileComponents();
     })
-      .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HarryPotterComponent);
@@ -50,7 +51,9 @@ describe('HarryPotterComponent', () => {
   it('2 + 1 books', () => {
     const cart: Cart = { band1: 0, band2: 2, band3: 0, band4: 0, band5: 1 };
 
-    expect(calcBestPrice(cart)).toEqual(roundTwo(discountSets[1] + discountSets[0]));
+    expect(calcBestPrice(cart)).toEqual(
+      roundTwo(discountSets[1] + discountSets[0])
+    );
   });
 
   it('2 + 2 books', () => {
@@ -68,7 +71,9 @@ describe('HarryPotterComponent', () => {
   it('2 + 1 + 1 books', () => {
     const cart: Cart = { band1: 0, band2: 2, band3: 1, band4: 1, band5: 0 };
 
-    expect(calcBestPrice(cart)).toEqual(roundTwo(discountSets[2] + discountSets[0]));
+    expect(calcBestPrice(cart)).toEqual(
+      roundTwo(discountSets[2] + discountSets[0])
+    );
   });
 
   it('2 + 2 + 2 + 1 + 1 books (special case)', () => {
