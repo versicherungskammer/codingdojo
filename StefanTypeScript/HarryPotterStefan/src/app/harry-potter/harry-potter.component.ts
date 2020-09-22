@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Cart } from '../model/cart';
 import { calcBestPrice } from '../shared/calc-price';
 
@@ -7,7 +7,7 @@ import { calcBestPrice } from '../shared/calc-price';
   templateUrl: './harry-potter.component.html',
   styleUrls: ['./harry-potter.component.css']
 })
-export class HarryPotterComponent implements OnInit {
+export class HarryPotterComponent {
   cart: Cart;
   bestPrice: number;
 
@@ -16,10 +16,7 @@ export class HarryPotterComponent implements OnInit {
     this.bestPrice = 0;
   }
 
-  ngOnInit() {
-  }
-
-  onClickCalculate() {
+  onClickCalculate(): void {
     this.bestPrice = calcBestPrice(this.cart);
   }
 }

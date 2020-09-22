@@ -1,6 +1,6 @@
 import { Cart } from '../model/cart';
 
-export const roundTwo = (value: number) => {
+export const roundTwo = (value: number): number => {
   return Math.round(value * 100) / 100;
 };
 const discounts: number[] = [1, 0.95, 0.9, 0.8, 0.75];

@@ -1,27 +1,32 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CodingDojoComponent } from './coding-dojo.component';
-import { FARBE, WERT, KARTE, BLATT } from '../model/cart';
-import { isFourOfAKind, isThreeOfAKind, isTwoOfAKind } from '../shared/calc-card';
+import { FARBE, WERT, BLATT } from '../model/cart';
+import {
+  isFourOfAKind,
+  isThreeOfAKind,
+  isTwoOfAKind
+} from '../shared/calc-card';
 
 describe('CodingDojoComponent', () => {
-  let component: CodingDojoComponent;
+  // let component: CodingDojoComponent;
   let fixture: ComponentFixture<CodingDojoComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, FormsModule, AppMaterialModule],
-      declarations: [CodingDojoComponent]
+  beforeEach(
+    waitForAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [BrowserAnimationsModule, FormsModule, AppMaterialModule],
+        declarations: [CodingDojoComponent]
+      }).compileComponents();
     })
-      .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CodingDojoComponent);
-    component = fixture.componentInstance;
+    // component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
