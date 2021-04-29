@@ -35,7 +35,7 @@ import { MatInputModule } from '@angular/material/input';
     // MatMenuModule,
     // MatCardModule,
     MatFormFieldModule,
-    MatInputModule,
+    MatInputModule
     // MatDatepickerModule,
     // MatNativeDateModule,
     // MatSelectModule,
@@ -53,4 +53,4 @@ import { MatInputModule } from '@angular/material/input';
   declarations: [],
   providers: [{ provide: MAT_DATE_LOCALE, useValue: 'de-DE' }]
 })
-export class AppMaterialModule { }
+export class AppMaterialModule {}

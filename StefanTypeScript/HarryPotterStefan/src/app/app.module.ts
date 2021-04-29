@@ -10,20 +10,19 @@ import { AppComponent } from './app.component';
 import { HarryPotterComponent } from './harry-potter/harry-potter.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HarryPotterComponent
-  ],
+  declarations: [AppComponent, HarryPotterComponent],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
     AppMaterialModule
   ],
-  providers: [{
-    provide: LOCALE_ID,
-    useValue: 'de'
-  }],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'de'
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
