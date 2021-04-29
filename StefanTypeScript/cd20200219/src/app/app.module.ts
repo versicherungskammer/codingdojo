@@ -12,10 +12,7 @@ import { AppComponent } from './app.component';
 import { CodingDojoComponent } from './coding-dojo/coding-dojo.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CodingDojoComponent
-  ],
+  declarations: [AppComponent, CodingDojoComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -23,10 +20,12 @@ import { CodingDojoComponent } from './coding-dojo/coding-dojo.component';
     AppMaterialModule,
     BrowserAnimationsModule
   ],
-  providers: [{
-    provide: LOCALE_ID,
-    useValue: 'de'
-  }],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'de'
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

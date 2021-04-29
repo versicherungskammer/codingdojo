@@ -17,7 +17,7 @@ describe('CodingDojoComponent', () => {
 
   beforeEach(
     waitForAsync(() => {
-      TestBed.configureTestingModule({
+      void TestBed.configureTestingModule({
         imports: [BrowserAnimationsModule, FormsModule, AppMaterialModule],
         declarations: [CodingDojoComponent]
       }).compileComponents();
@@ -47,7 +47,7 @@ describe('CodingDojoComponent', () => {
       ]
     };
 
-    expect(isFourOfAKind(blatt)).toEqual(true);
+    void expect(isFourOfAKind(blatt)).toEqual(true);
   });
 
   it('Vierer falsch', () => {
@@ -63,7 +63,7 @@ describe('CodingDojoComponent', () => {
       ]
     };
 
-    expect(isFourOfAKind(blatt)).toEqual(false);
+    void expect(isFourOfAKind(blatt)).toEqual(false);
   });
 
   it('Dreier echt', () => {
@@ -79,7 +79,7 @@ describe('CodingDojoComponent', () => {
       ]
     };
 
-    expect(isThreeOfAKind(blatt)).toEqual(true);
+    void expect(isThreeOfAKind(blatt)).toEqual(true);
   });
   it('Dreier falsch', () => {
     const blatt: BLATT = {
@@ -94,7 +94,7 @@ describe('CodingDojoComponent', () => {
       ]
     };
 
-    expect(isThreeOfAKind(blatt)).toEqual(false);
+    void expect(isThreeOfAKind(blatt)).toEqual(false);
   });
   it('Zweier echt', () => {
     const blatt: BLATT = {
@@ -109,7 +109,7 @@ describe('CodingDojoComponent', () => {
       ]
     };
 
-    expect(isTwoOfAKind(blatt)).toEqual(true);
+    void expect(isTwoOfAKind(blatt)).toEqual(true);
   });
   it('Zweier falsch', () => {
     const blatt: BLATT = {
@@ -124,6 +124,6 @@ describe('CodingDojoComponent', () => {
       ]
     };
 
-    expect(isTwoOfAKind(blatt)).toEqual(false);
+    void expect(isTwoOfAKind(blatt)).toEqual(false);
   });
 });

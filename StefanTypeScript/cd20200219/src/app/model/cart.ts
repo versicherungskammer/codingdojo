@@ -3,7 +3,7 @@ export enum FARBE {
   HERZ,
   PIK,
   KREUZ
-};
+}
 
 export enum WERT {
   ZWEI = 2,

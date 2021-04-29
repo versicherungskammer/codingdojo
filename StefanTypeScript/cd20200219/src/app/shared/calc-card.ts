@@ -6,7 +6,7 @@ export const isKindOfX = (blatt: BLATT, x: number): boolean => {
   const wertemap = new Map();
   werte.forEach(wert =>
     wertemap.has(wert)
-      ? wertemap.set(wert, wertemap.get(wert) + 1)
+      ? wertemap.set(wert, +wertemap.get(wert) + 1)
       : wertemap.set(wert, 1)
   );
   const anzahl = Array.from(wertemap.values()).filter(el => el === x);
